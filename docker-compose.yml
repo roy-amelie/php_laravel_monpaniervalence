@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:1.18
+    container_name: panier-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/app
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+      - db
+    networks:
+      - panier
+  app:
+    build:
+      args:
+        user: panier
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile-php
+    image: panier
+    container_name: panier-app
+    restart: unless-stopped
+    working_dir: /var/www/app/
+    volumes:
+      - ./:/var/www/app
+    networks:
+      - panier
+  db:
+    image: mariadb:10.5
+    container_name: panier-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./bdd:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=votremotdepasseroot
+      - MYSQL_DATABASE=asso
+      - MYSQL_USER=asso
+      - MYSQL_PASSWORD=votremotdepassedb
+    networks:
+      - panier
+networks:
+  panier:
+    driver: bridge
