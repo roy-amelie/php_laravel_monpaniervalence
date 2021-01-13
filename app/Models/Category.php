@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -17,5 +17,10 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function shops()
+    {
+        return $this->belongsToMany(Shop::class);
+    }
 
 }
