@@ -17,7 +17,7 @@ class CreateShopsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->integer('postal_code');
+            $table->string('postal_code');
             $table->string('city');
             $table->timestamps();
         });

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 
-class gitShopController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class gitShopController extends Controller
      */
     public function index()
     {
-        //
+        $shops = Shop::all();
+        return view('shops/all_shops', ['shops' => $shops]);
     }
 
     /**
@@ -46,7 +47,7 @@ class gitShopController extends Controller
      */
     public function show(Shop $shop)
     {
-        //
+        return view('shops/shop',['shop' => $shop]);
     }
 
     /**
