@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::resource('categories',CategoryController::class);
 Route::resource('shops', ShopController::class);
 

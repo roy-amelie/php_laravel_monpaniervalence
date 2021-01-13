@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
+            ProductSeeder::class,
         ]);
 
         $ids = range(1, 8);
