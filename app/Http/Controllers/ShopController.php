@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 
-class gitShopController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
