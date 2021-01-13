@@ -1,0 +1,3 @@
+<p>
+    all categories
+</p>
