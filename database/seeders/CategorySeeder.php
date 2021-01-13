@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
        DB::table('categories')->insert([
-            'name' => 'MODE & ACCESSOIRE',
+            'name' => 'MODE & ACCESSOIRES',
         ]);
         DB::table('categories')->insert([
             'name' => 'BEAUTÉ & BIEN-ÊTRE',
@@ -31,13 +31,13 @@ class CategorySeeder extends Seeder
             'name' => 'CULTURE & LOISIRS',
         ]);
         DB::table('categories')->insert([
-            'name' => 'SPORT',
+            'name' => 'SPORTS',
         ]);
         DB::table('categories')->insert([
             'name' => 'SANTÉ',
         ]);
         DB::table('categories')->insert([
-            'name' => 'SERVICE & DIVERS',
+            'name' => 'SERVICES & DIVERS',
         ]);
     }
 }
