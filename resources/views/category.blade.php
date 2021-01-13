@@ -1,4 +1,13 @@
+{{--@extends('layout')--}}
 
-<h2>
-    {{ $category -> name }}
-</h2>
+{{--@section('main')--}}
+<main>
+    <div class="text-center">
+        <h2>
+            {{ $category -> name }}
+        </h2>
+    </div>
+</main>
+{{--@endsection--}}
+
+
