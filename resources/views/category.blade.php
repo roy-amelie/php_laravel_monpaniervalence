@@ -1,3 +1,4 @@
-<p>
-    Category
-</p>
+
+<h2>
+    {{ $category -> name }}
+</h2>
