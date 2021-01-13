@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/createproduct', function () {
+    return view('products.create');
+});
 
 Route::resource('categories',CategoryController::class);
 
