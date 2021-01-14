@@ -16,16 +16,16 @@
                             </div>
                         @endif
                         {{--<-- TITRE DE LA FICHE ->>--}}
-                        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                            Fiche n° {{$user -> id }} ·
-                            @if($user->role == 'admin')
-                                <span
-                                    class="text text-success">Admin</span>
-                            @else
-                                <span
-                                    class="text text-danger">Membre</span>
-                            @endif
-                        </h2>
+                            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+                                Utilisateur n° {{$user -> id }} ·
+                                @if($user->role == 'Commerçant')
+                                    <span
+                                        class="text text-success">Commerçant</span>
+                                @else
+                                    <span
+                                        class="text text-danger">Client</span>
+                                @endif
+                            </h2>
                         {{--<-- INFORMATIONS DE SUIVI ->>--}}
                         <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap">
                             <div class="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mr-6">
