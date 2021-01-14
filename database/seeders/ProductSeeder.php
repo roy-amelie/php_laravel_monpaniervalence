@@ -33,6 +33,7 @@ class ProductSeeder extends Seeder
             'name' => 'Villa sur la côte',
             'description' => 'Soulever votre t-shirt, vous avez une maison sur la côte',
             'shop_id' => 3,
+            'price' => 40000,
         ]);
         DB::table('products')->insert([
             'name' => 'Marteau',
