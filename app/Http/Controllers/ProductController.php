@@ -15,10 +15,11 @@ class ProductController extends Controller
      * @param Shop $shop
      * @return \Illuminate\Http\Response
      */
-    public function index(Shop $shop)
+    public function index()
     {
-        return view('products.index', [
-            'shop' => $shop,
+        $products = Product::all();
+        return view('products.all', [
+            'products' => $products,
         ]);
     }
 

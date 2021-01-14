@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\ProductController;
@@ -24,10 +25,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-
 Route::resource('categories',CategoryController::class);
 Route::resource('shops', ShopController::class);
 Route::resource('products', ProductController::class);
+Route::resource('cart', CartController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
