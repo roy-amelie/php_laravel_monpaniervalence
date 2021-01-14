@@ -15,13 +15,13 @@
                                 <div class="flex-1 min-w-0">
                                     {{--<-- TITRE DE LA FICHE ->>--}}
                                     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                                        Fiche n° {{$user -> id }} ·
-                                        @if($user->role == 'admin')
+                                        Utilisateur n° {{$user -> id }} ·
+                                        @if($user->role == 'Commerçant')
                                             <span
-                                                class="text text-success">Admin</span>
+                                                class="text text-success">Commerçant</span>
                                         @else
                                             <span
-                                                class="text text-danger">Membre</span>
+                                                class="text text-danger">Client</span>
                                         @endif
                                     </h2>
                                     {{--<-- INFORMATIONS DE SUIVI ->>--}}
@@ -68,7 +68,7 @@
                                   <path
                                       d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                                 </svg>
-                                Édition
+                                Modifier mes informations personnelles
                               </a>
                         </span>
                                     <span class="sm:ml-3 shadow-sm rounded-md">
@@ -106,31 +106,6 @@
                                     <form class="needs-validation" novalidate>
                                         <div class="row">
                                             {{-- CIVILITÉ --}}
-                                            <div class="form-group has-feedback col-md-6 mb-3 ">
-                                                @if(Auth::user()->role === 'admin')
-                                                    <label>Rôle</label>
-                                                    <div>
-                                                        @if($user->role == 'admin')
-                                                            <input type="radio" id="membre" name="role" value="membre"
-                                                                   disabled>
-                                                            <label for="membre">Membre</label><br>
-                                                            <input type="radio" id="1" name="role" value="admin"
-                                                                   checked="checked"
-                                                                   disabled>
-                                                            <label for="admin">Admin</label><br>
-                                                        @else
-                                                            <input type="radio" id="membre" name="role" value="membre"
-                                                                   checked="checked"
-                                                                   disabled>
-                                                            <label for="membre">Membre</label><br>
-                                                            <input type="radio" id="1" name="role" value="admin"
-                                                                   disabled>
-                                                            <label for="admin">Admin</label><br>
-                                                        @endif
-                                                    </div>
-                                                @endif
-                                            </div>
-
                                             <div class="form-group has-feedback col-md-6 mb-3">
                                                 <label>Civilité</label>
                                                 <div>
@@ -154,11 +129,11 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="first_name">Prénom</label>
+                                                <label for="firstname">Prénom</label>
                                                 <input type="text"
                                                        class="form-control"
-                                                       id="first_name"
-                                                       value="{{$user->first_name}}"
+                                                       id="firstname"
+                                                       value="{{$user->firstname}}"
                                                        disabled>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -166,7 +141,7 @@
                                                 <input type="text"
                                                        class="form-control"
                                                        id="name"
-                                                       value="{{$user->name}}"
+                                                       value="{{$user->lastname}}"
                                                        disabled>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -200,19 +175,11 @@
 
                                         {{-- ADRESSE --}}
                                         <div class="mb-3">
-                                            <label for="address_1">Adresse</label>
+                                            <label for="address1">Adresse</label>
                                             <input type="text"
                                                    class="form-control"
-                                                   id="address_1"
-                                                   value="{{$user->address_1}}"
-                                                   disabled>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="address_2">Complément d'adresse <span class="text-muted">(Optionnel)</span></label>
-                                            <input type="text"
-                                                   class="form-control"
-                                                   id="address_2"
-                                                   value="{{$user->address_2}}"
+                                                   id="address1"
+                                                   value="{{$user->address}}"
                                                    disabled>
                                         </div>
                                         <div class="row">
@@ -241,9 +208,4 @@
                 </div>
             </div>
         </div>
-
-
-    </div>
-    </div>
-    </div>
 </x-app-layout>
