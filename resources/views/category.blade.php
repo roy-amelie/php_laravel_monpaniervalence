@@ -1,6 +1,6 @@
-{{--@extends('layout')--}}
+@extends('layout')
 
-{{--@section('main')--}}
+@section('main')
 <main>
     <div class="text-center">
         <h2>
@@ -8,6 +8,6 @@
         </h2>
     </div>
 </main>
-{{--@endsection--}}
+@endsection
 
 
