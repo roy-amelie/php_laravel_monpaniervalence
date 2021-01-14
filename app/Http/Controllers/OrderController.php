@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -41,14 +42,16 @@ class OrderController extends Controller
         foreach ($cart_items as $item) {
 
             $product = Product::find($item->id);
-            if (empty($total_per_shop) || !isset($total_per_shop[$product->shop_id]) ){
-                $total_per_shop[$product->shop_id] = ($item->price*$item->qty);
-
+            $name = Shop::find($product->shop_id)->name;
+            if (empty($total_per_shop) || !isset($total_per_shop[''.$name.'']) ){
+                $total_per_shop[''.$name.''] = ($item->price*$item->qty);
             } else {
-                $total_per_shop[$product->shop_id] += ($item->price*$item->qty);
+                $total_per_shop[''.$name.''] += ($item->price*$item->qty);
             }
         }
-        dd($total_per_shop, $cart_items);
+
+        return view('payment_per_shop', ['total_per_shop' => $total_per_shop]);
+//        dd($total_per_shop, $cart_items);
     }
 
     /**
