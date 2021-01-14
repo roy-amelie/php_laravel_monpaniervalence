@@ -22,8 +22,8 @@ class Product extends Model
         'quantity',
     ];
 
-    public function categories(){
+    public function shop(){
 
-        return $this->belongsToMany(Category::class);
+        return $this->hasOne(Shop::class);
     }
 }

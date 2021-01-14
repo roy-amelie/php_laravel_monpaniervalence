@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price')->nullable();
             $table->decimal('weight')->nullable();
             $table->integer('quantity')->nullable();
+            $table->foreignId('shop_id')->nullable();
         });
     }
 
