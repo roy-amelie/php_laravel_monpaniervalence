@@ -6,7 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CartController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('carts/all', ['products' => Cart::content()]);
+        //
     }
 
     /**
@@ -36,20 +36,28 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        Cart::add($request->id, $request->name, 1, $request->price)
-            ->associate('App\Product');
+        $total_per_shop = [];
+        $cart_items = Cart::content();
+        foreach ($cart_items as $item) {
 
-        return redirect()->route('products.index')->with('success', 'Le produit a bien été ajouté');
+            $product = Product::find($item->id);
+            if (empty($total_per_shop) || !isset($total_per_shop[$product->shop_id]) ){
+                $total_per_shop[$product->shop_id] = ($item->price*$item->qty);
 
+            } else {
+                $total_per_shop[$product->shop_id] += ($item->price*$item->qty);
+            }
+        }
+        dd($total_per_shop, $cart_items);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Cart $cart
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function show($id)
     {
         //
     }
@@ -57,10 +65,10 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Cart $cart
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cart $cart)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +77,10 @@ class CartController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cart $cart
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +88,10 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Cart $cart
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
         //
     }
