@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Shop;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ShopSeeder extends Seeder
 {
@@ -11,8 +13,7 @@ class ShopSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run(){
         //
     }
 }
