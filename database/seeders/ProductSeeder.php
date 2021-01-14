@@ -19,6 +19,7 @@ class ProductSeeder extends Seeder
             'description' => 'Personne en met mais nous on en vend',
             'price' => 10,
             'quantity' => 10,
+            'shop_id' => 1,
         ]);
         DB::table('products')->insert([
             'name' => 'Pommade qui rend beau',
@@ -26,21 +27,25 @@ class ProductSeeder extends Seeder
             'price' => 50000,
             'weight' => 1,
             'quantity' => 1,
+            'shop_id' => 2,
         ]);
         DB::table('products')->insert([
             'name' => 'Villa sur la côte',
             'description' => 'Soulever votre t-shirt, vous avez une maison sur la côte',
+            'shop_id' => 3,
         ]);
         DB::table('products')->insert([
             'name' => 'Marteau',
             'description' => 'Et si vous aviez un marteau ? Cognerez-vous la nuit ?',
             'price' => 10,
             'quantity' => 10,
+            'shop_id' => 4,
         ]);
         DB::table('products')->insert([
             'name' => 'Séjour en Meurthe et Moselle',
             'description' => "Si si, c'est pas mal",
             'price' => 1000,
+            'shop_id' => 5,
         ]);
         DB::table('products')->insert([
             'name' => 'Vélo de folie',
@@ -48,17 +53,20 @@ class ProductSeeder extends Seeder
             'price' => 1000,
             'weight' => 10,
             'quantity' => 10,
+            'shop_id' => 5,
         ]);
         DB::table('products')->insert([
             'name' => 'Xanax',
             'description' => 'Pas plus que un à la fois',
             'price' => 10,
+            'shop_id' => 5,
         ]);
         DB::table('products')->insert([
             'name' => 'SERVICES & DIVERS',
             'name' => 'Coupe homme',
             'description' => 'Coupe homme classique',
             'price' => 15,
+            'shop_id' => 1,
         ]);
     }
 }
