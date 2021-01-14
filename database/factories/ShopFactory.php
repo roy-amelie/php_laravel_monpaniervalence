@@ -22,7 +22,10 @@ class ShopFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'address' => $this->faker->address,
+            'postal_code' => $this->faker->postcode,
+            'city' => $this->faker->city,
         ];
     }
 }
