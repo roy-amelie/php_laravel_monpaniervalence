@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,8 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-
-        return view('all_categories', ['categories' => $categories]);
+        return view('categories.all', ['categories' => $categories]);
     }
 
     /**
@@ -48,7 +48,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category', ['category' => $category]);
+        return view('categories.show', ['category' => $category]);
     }
 
     /**
