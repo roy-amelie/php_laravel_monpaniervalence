@@ -166,7 +166,7 @@
                     <span class="badge badge-pill badge-dark"> {{Cart::count()}} </span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Mon panier   </a>
+                    <a class="dropdown-item" href="{{route('cart.index')}}">Mon panier   </a>
                 </div>
             </div>
         </div>
