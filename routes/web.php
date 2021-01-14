@@ -29,6 +29,7 @@ Route::resource('categories',CategoryController::class);
 Route::resource('shops', ShopController::class);
 Route::resource('products', ProductController::class);
 Route::resource('cart', CartController::class);
+Route::resource('order', \App\Http\Controllers\OrderController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
