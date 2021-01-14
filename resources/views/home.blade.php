@@ -2,7 +2,7 @@
 
 @section('main')
     <main>
-        <div class="text-center">
+        <div class="container">
             <img src="{{url('/img/valence.jpeg')}}" alt="">
         </div>
     </main>

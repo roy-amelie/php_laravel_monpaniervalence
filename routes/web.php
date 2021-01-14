@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CategoryController;
 
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\ShopController;
@@ -27,7 +26,6 @@ Route::get('/', function () {
 
 Route::resource('categories',CategoryController::class);
 Route::resource('shops', ShopController::class);
-Route::resource('product', ProductController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
