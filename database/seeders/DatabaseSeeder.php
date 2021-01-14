@@ -14,10 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            CategorySeeder::class,
-            ProductSeeder::class,
-        ]);
+
+         $this->call([
+             CategorySeeder::class,
+             ProductSeeder::class,
+             UsersSeeder::class,
+         ]);
 
         $ids = range(1, 8);
 
