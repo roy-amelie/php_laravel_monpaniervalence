@@ -40,7 +40,6 @@ class OrderController extends Controller
         $total_per_shop = [];
         $cart_items = Cart::content();
         foreach ($cart_items as $item) {
-
             $product = Product::find($item->id);
             $name = Shop::find($product->shop_id)->name;
             if (empty($total_per_shop) || !isset($total_per_shop[''.$name.'']) ){
@@ -50,8 +49,8 @@ class OrderController extends Controller
             }
         }
 
-        return view('payment_per_shop', ['total_per_shop' => $total_per_shop]);
-//        dd($total_per_shop, $cart_items);
+        return view('payment_per_shop', ['cart_items'=> $cart_items, 'total_per_shop' => $total_per_shop]);
+
     }
 
     /**
