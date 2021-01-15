@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
+
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\ShopController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +22,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+})->name('home');
+
+Route::resource('categories',CategoryController::class);
+Route::resource('shops', ShopController::class);
+Route::resource('products', ProductController::class);
+Route::resource('cart', CartController::class);
+Route::resource('order', \App\Http\Controllers\OrderController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::resource('users', UserController::class);
 });

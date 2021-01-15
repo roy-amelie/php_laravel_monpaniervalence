@@ -34,7 +34,7 @@ services:
     container_name: panier-db
     restart: unless-stopped
     ports:
-      - "3307:3307"
+      - "3307:3306"
     volumes:
       - ./bdd:/var/lib/mysql
     environment:
